@@ -232,7 +232,7 @@ include '~/.config/sway/config.d/$(cat /etc/hostname)'
 # startup applications
 exec nm-applet --indicator
 exec swaync
-exec foot --server
+exec foot --server --config="/home/rob/.config/foot/foot-$(cat /etc/hostname).ini"
 
 seat seat0 xcursor_theme phinger-cursors-light
 
