@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec waybar -c ~/.config/waybar/$(cat /etc/hostname)

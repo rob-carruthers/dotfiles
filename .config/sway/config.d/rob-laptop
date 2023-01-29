@@ -1,0 +1,4 @@
+set $lock 'gtklock -d'
+bindswitch --reload --locked lid:on exec $lock
+
+exec fusuma
