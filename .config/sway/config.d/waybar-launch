@@ -1,3 +1,13 @@
 #!/bin/bash
 
-exec waybar -c ~/.config/waybar/$(cat /etc/hostname)
+# waybar -c ~/.config/waybar/$HOSTNAME
+
+CONFIG_FILES="$HOME/.config/waybar/$HOSTNAME $HOME/.config/waybar/style.css"
+
+trap "killall waybar" EXIT
+
+while true; do
+    waybar -c ~/.config/waybar/$HOSTNAME &
+    inotifywait -e create,modify $CONFIG_FILES
+    killall waybar
+done
