@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export MOZ_USE_XINPUT2=1
+export MOZ_ENABLE_WAYLAND=1
+
+WLR_DRM_DEVICES=/dev/dri/card0 sway --unsupported-gpu &> /dev/null
