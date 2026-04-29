@@ -1,0 +1,5 @@
+[".config/helix"]
+  type = "git-repo"
+  url = "git@github.com:rob-carruthers/helix.git"
+  refreshPeriod = "168h"
+
