@@ -1,0 +1,7 @@
+git:
+  merging:
+    args: --no-ff
+gui:
+  mouseEvents: false
+os:
+  editPreset: helix (hx)
