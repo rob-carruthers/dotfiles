@@ -2,7 +2,7 @@
 style=beam
 
 [main]
-font=JetBrainsMono Nerd Font Mono:size=9
+font=JetBrainsMono Nerd Font Mono:size={{ index (index . "font-sizes").mono .chezmoi.hostname | default 9 }}
 
 [colors-dark]
 cursor = 181818 56d8c9
