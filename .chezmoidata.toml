@@ -1,5 +1,10 @@
 [default-fonts]
+regular = "Noto Sans Regular"
 mono = "JetBrainsMono Nerd Font Mono"
+
+[font-sizes.regular]
+rob-pc = 8
+rob-laptop = 9
 
 [font-sizes.mono]
 rob-pc = 9
