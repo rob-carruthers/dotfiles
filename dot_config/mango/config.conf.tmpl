@@ -1,10 +1,46 @@
 # More option see https://github.com/DreamMaoMao/mango/wiki/
+env=QT_QPA_PLATFORMTHEME,qt5ct
 
 # autostarts
-exec-once=waybar
-exec-once=sh -c env QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=mango syncthingtray
+# exec-once=waybar
+# exec-once=sh -c env QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=mango syncthingtray
+exec-once=gentoo-pipewire-launcher
 exec-once=pcmanfm-qt --desktop
 
+## Host-specific config - chezmoi
+{{- if eq .chezmoi.hostname "rob-laptop" }}
+trackpad_natural_scrolling=1
+xkb_rules_layout=gb
+
+bind=NONE,XF86AudioRaiseVolume,spawn,pulsemixer --change-volume +5
+bind=NONE,XF86AudioLowerVolume,spawn,pulsemixer --change-volume -5
+bind=NONE,XF86AudioMute,spawn,pulsemixer --toggle-mute
+bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s +5%
+bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
+
+# exec-once=legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
+exec-once=blueman-applet
+borderpx=4
+{{- end }}
+
+{{- if eq .chezmoi.hostname "rob-pc" }}
+xkb_rules_layout=us
+
+bind=CTRL+SHIFT+SUPER,a,spawn,mpc prev
+bind=CTRL+SHIFT+SUPER,b,spawn,mpc toggle
+bind=CTRL+SHIFT+SUPER,c,spawn,mpc next
+bind=CTRL+SHIFT+SUPER,e,spawn,ario
+bind=CTRL+SHIFT+SUPER,m,spawn,pulsemixer --change-volume -2
+bind=CTRL+SHIFT+SUPER,n,spawn,pulsemixer --toggle-mute
+bind=CTRL+SHIFT+SUPER,o,spawn,pulsemixer --change-volume +2
+
+monitorrule=serial:U5B3RM9A,width:1920,height:1080,refresh:143.99899
+
+exec-once=mpd
+exec-once=ch57x-keyboard-tool upload ~/.config/utility-keys/utility-keys.yaml
+
+borderpx=5
+{{- end }}
 
 # Window effect
 blur=0
@@ -259,16 +295,4 @@ axisbind=SUPER,DOWN,viewtoright_have_client
 # layer rule
 layerrule=animation_type_open:zoom,layer_name:wofi
 layerrule=animation_type_close:zoom,layer_name:wofi
-borderpx=5
 
-trackpad_natural_scrolling=1
-xkb_rules_layout=gb
-
-bind=NONE,XF86AudioRaiseVolume,spawn,pulsemixer --change-volume +5
-bind=NONE,XF86AudioLowerVolume,spawn,pulsemixer --change-volume -5
-bind=NONE,XF86AudioMute,spawn,pulsemixer --toggle-mute
-bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s +5%
-bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
-
-exec-once=legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
-exec-once=blueman-applet
