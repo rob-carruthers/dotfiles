@@ -1,0 +1,3 @@
+{{- if ne .chezmoi.hostname "rob-pc" }}
+.config/mpd
+{{- end }}
