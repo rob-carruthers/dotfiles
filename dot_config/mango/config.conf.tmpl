@@ -20,7 +20,7 @@ bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
 
 # exec-once=legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
 exec-once=blueman-applet
-borderpx=4
+borderpx=5
 {{- end }}
 
 {{- if eq .chezmoi.hostname "rob-pc" }}
@@ -39,7 +39,7 @@ monitorrule=serial:U5B3RM9A,width:1920,height:1080,refresh:143.99899
 exec-once=mpd
 exec-once=ch57x-keyboard-tool upload ~/.config/utility-keys/utility-keys.yaml
 
-borderpx=5
+borderpx=4
 {{- end }}
 
 # Window effect
