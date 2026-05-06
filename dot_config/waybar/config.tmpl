@@ -1,0 +1,145 @@
+[
+  {
+    "backlight": {
+      "format": "{percent}% {icon} ",
+      "format-icons": [
+        "󰌶",
+        "󱩎",
+        "󱩏",
+        "󱩐",
+        "󱩑",
+        "󱩒",
+        "󱩓",
+        "󱩔",
+        "󱩕",
+        "󱩖",
+        "󰛨"
+      ]
+    },
+    "battery": {
+      "format": "{capacity}% {icon} ",
+      "format-alt": "{time} {icon} ",
+      "format-charging": "{capacity}% 󰂄",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "format-plugged": "{capacity}% 󰂄",
+      "states": {
+        "critical": 15,
+        "warning": 30
+      },
+      "tooltip-format": "{time} remaining"
+    },
+    "clock": {
+      "format": "{:%d/%m/%Y %H:%M}",
+      "interval": 60,
+      "timezone": "Europe/London"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false
+    },
+    "custom/start": {
+      "cursor": false,
+      "format": "        Start",
+      "on-click": "exec nwg-menu -cmd-logout 'labwc -e' -k -term 'ghostty' -fm 'pcmanfm-qt'",
+      "tooltip": false
+    },
+    "dwl/tags": {
+      "num-tags": 4
+    },
+    "dwl/window": {
+      "icon": true,
+      "icon-size": 16
+    },
+    "ext/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate"
+    },
+    "height": 30,
+    "layer": "top",
+    "memory": {
+      "format": "{}% ",
+      "tooltip": false
+    },
+    "modules-center": [],
+    "modules-left": [
+      "custom/start",
+      "ext/workspaces",
+      "wlr/taskbar"
+    ],
+    "modules-right": [
+      {{- if eq .chezmoi.hostname "rob-laptop" }}
+      "backlight",
+      "battery",
+      {{- end }}
+      {{- if eq .chezmoi.hostname "rob-pc" }}
+      "mpd",
+      {{- end }}
+      "temperature",
+      "pulseaudio",
+      "network",
+      "tray",
+      "clock"
+    ],
+    "mpd": {
+      "format": " {artist} - {title} ({elapsedTime:%M:%S} / {totalTime:%M:%S})",
+      "format-paused": " {artist} - {title} ({elapsedTime:%M:%S} / {totalTime:%M:%S})",
+      "format-stopped": "",
+      "on-click": "exec ario"
+    },
+    "network": {
+      "format": "{ifname}",
+      "format-disconnected": " ",
+      "format-ethernet": "󰊗 ",
+      "format-wifi": "",
+      "max-length": 50,
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "tooltip-format-disconnected": "Disconnected",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) "
+    },
+    "position": "bottom",
+    "pulseaudio": {
+      "format": "{volume}% {icon} ",
+      "format-icons": {
+        "car": "",
+        "default": "",
+        "hands-free": "",
+        "headphone": "󰋋",
+        "headset": "",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": "0% 󰝟 ",
+      "format-source-muted": "󰝟",
+      "on-click": "pavucontrol"
+    },
+    "spacing": 0,
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ]{{- if eq .chezmoi.hostname "rob-pc" }},
+      "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+      "input-filename": "temp1_input"
+      {{- end }}      
+    },
+    "tray": {
+      "spacing": 4
+    },
+    "wlr/taskbar": {
+      "all-outputs": false,
+      "format": "{icon} {name}",
+      "on-click": "activate",
+      "sort-by-number": true
+    }
+  }
+]
