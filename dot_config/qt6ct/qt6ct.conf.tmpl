@@ -1,3 +1,7 @@
+{{- $regular := (index . "default-fonts").regular }}
+{{- $mono := (index . "default-fonts").mono }}
+{{- $regular_size := index (index . "font-sizes").regular .chezmoi.hostname | default 9 }}
+{{- $mono_size := index (index . "font-sizes").mono .chezmoi.hostname | default 9 }}
 [Appearance]
 custom_palette=false
 icon_theme={{ index . "icon-theme" }}
@@ -5,10 +9,6 @@ standard_dialogs=default
 style=Fusion
 
 [Fonts]
-{{- $regular := (index . "default-fonts").regular }}
-{{- $mono := (index . "default-fonts").mono }}
-{{- $regular_size := index (index . "font-sizes").regular .chezmoi.hostname | default 9 }}
-{{- $mono_size := index (index . "font-sizes").mono .chezmoi.hostname | default 9 }}
 fixed="{{ $mono }},{{ $mono_size }},-1,5,50,0,0,0,0,0,Regular"
 general="{{ $regular }},{{ $regular_size }},-1,5,50,0,0,0,0,0,Regular"
 
