@@ -1,3 +1,5 @@
+icon-theme = "Memphis98"
+
 [default-fonts]
 regular = "Noto Sans Regular"
 mono = "JetBrainsMono Nerd Font Mono"
