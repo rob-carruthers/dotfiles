@@ -2,7 +2,7 @@
 {{- $regular_size := index (index . "font-sizes").regular .chezmoi.hostname | default 9 }}
 [Settings]
 gtk-theme-name=Adwaita
-gtk-icon-theme-name="{{ index . "icon-theme" }}"
+gtk-icon-theme-name={{ index . "icon-theme" }}
 gtk-font-name={{ $regular }} {{ $regular_size }}
 gtk-cursor-theme-name=
 gtk-cursor-theme-size=24
