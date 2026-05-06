@@ -18,7 +18,7 @@ bind=NONE,XF86AudioMute,spawn,pulsemixer --toggle-mute
 bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s +5%
 bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
 
-exec-once=legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
+exec-once=~/.cargo/bin/legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
 exec-once=blueman-applet
 borderpx=5
 {{- end }}
