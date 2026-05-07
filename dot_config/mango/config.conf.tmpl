@@ -12,11 +12,11 @@ exec-once=pcmanfm-qt --desktop
 trackpad_natural_scrolling=1
 xkb_rules_layout=gb
 
-bind=NONE,XF86AudioRaiseVolume,spawn,pulsemixer --change-volume +5
-bind=NONE,XF86AudioLowerVolume,spawn,pulsemixer --change-volume -5
-bind=NONE,XF86AudioMute,spawn,pulsemixer --toggle-mute
-bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl s +5%
-bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
+bindl=NONE,XF86AudioRaiseVolume,spawn,pulsemixer --change-volume +5
+bindl=NONE,XF86AudioLowerVolume,spawn,pulsemixer --change-volume -5
+bindl=NONE,XF86AudioMute,spawn,pulsemixer --toggle-mute
+bindl=NONE,XF86MonBrightnessUp,spawn,brightnessctl s +5%
+bindl=NONE,XF86MonBrightnessDown,spawn,brightnessctl s 5%-
 
 exec-once=~/.cargo/bin/legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0
 exec-once=blueman-applet
@@ -26,13 +26,13 @@ borderpx=5
 {{- if eq .chezmoi.hostname "rob-pc" }}
 xkb_rules_layout=us
 
-bind=CTRL+SHIFT+SUPER,a,spawn,mpc prev
-bind=CTRL+SHIFT+SUPER,b,spawn,mpc toggle
-bind=CTRL+SHIFT+SUPER,c,spawn,mpc next
-bind=CTRL+SHIFT+SUPER,e,spawn,ario
-bind=CTRL+SHIFT+SUPER,m,spawn,pulsemixer --change-volume -2
-bind=CTRL+SHIFT+SUPER,n,spawn,pulsemixer --toggle-mute
-bind=CTRL+SHIFT+SUPER,o,spawn,pulsemixer --change-volume +2
+bindl=CTRL+SHIFT+SUPER,a,spawn,mpc prev
+bindl=CTRL+SHIFT+SUPER,b,spawn,mpc toggle
+bindl=CTRL+SHIFT+SUPER,c,spawn,mpc next
+bindl=CTRL+SHIFT+SUPER,e,spawn,ario
+bindl=CTRL+SHIFT+SUPER,m,spawn,pulsemixer --change-volume -2
+bindl=CTRL+SHIFT+SUPER,n,spawn,pulsemixer --toggle-mute
+bindl=CTRL+SHIFT+SUPER,o,spawn,pulsemixer --change-volume +2
 
 monitorrule=serial:U5B3RM9A,width:1920,height:1080,refresh:143.99899
 
