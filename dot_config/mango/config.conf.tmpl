@@ -2,10 +2,10 @@
 env=QT_QPA_PLATFORMTHEME,qt5ct
 
 # autostarts
-exec-once=waybar
+exec-once=gentoo-pipewire-launcher restart
+exec-once=sh -c 'until pactl info >/dev/null 2>&1; do sleep 0.2; done; waybar'
 exec-once=idle-command.sh
 # exec-once=sh -c env QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=mango syncthingtray
-exec-once=gentoo-pipewire-launcher restart
 exec-once=pcmanfm-qt --desktop
 
 ## Host-specific config - chezmoi
