@@ -3,8 +3,8 @@ Version=1.0
 Name=Mozilla Firefox
 GenericName=Web Browser
 Comment=Browse the Web
-Exec=firefox-bin --name=firefox-bin %u
-Icon=firefox-bin
+Exec=firefox --name=firefox %u
+Icon=firefox
 Terminal=false
 Type=Application
 MimeType=application/pdf;application/vnd.mozilla.xul+xml;application/xhtml+xml;text/html;text/mml;text/xml;x-scheme-handler/http;x-scheme-handler/https;
@@ -120,7 +120,7 @@ Name[wo]=Palanteer bu bees
 Name[xh]=Ifestile entsha
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=firefox-bin --name=firefox-bin --new-window %u
+Exec=firefox --name=firefox --new-window %u
 
 [Desktop Action new-private-window]
 Name=Open a New Private Window
@@ -228,4 +228,4 @@ Name[wo]=Panlanteeru biir bu bees
 Name[xh]=Ifestile yangasese entsha
 Name[zh_CN]=新建隐私浏览窗口
 Name[zh_TW]=新增隱私視窗
-Exec=firefox-bin --name=firefox-bin --private-window %u
+Exec=firefox --name=firefox --private-window %u
