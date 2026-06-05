@@ -3,6 +3,11 @@
   url = "git@github.com:rob-carruthers/helix.git"
   refreshPeriod = "168h"
 
+[".local/share/icons/Memphis98"]
+  type = "git-repo"
+  url = "https://github.com/Stanton731/Memphis98.git"
+  refreshPeriod = "168h"
+
 [".tmux/plugins/tpm"]
   type = "git-repo"
   url = "https://github.com/tmux-plugins/tpm"
