@@ -4,4 +4,4 @@ git:
 gui:
   mouseEvents: false
 os:
-  editPreset: helix
+  editPreset: helix (hx)
