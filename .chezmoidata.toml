@@ -2,7 +2,7 @@ icon-theme = "Memphis98"
 
 [default-fonts]
 regular = "Noto Sans"
-mono = "JetBrainsMono Nerd Font Mono"
+mono = "JetBrainsMonoNL Nerd Font Mono"
 
 [font-sizes.regular]
 rob-pc = 8
