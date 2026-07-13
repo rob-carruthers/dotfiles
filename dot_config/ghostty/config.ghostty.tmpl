@@ -1,0 +1,5 @@
+font-family = "{{ (index . "default-fonts").mono }}"
+font-size = {{ index (index . "font-sizes").mono .chezmoi.hostname | default 9 }}
+
+tab-inherit-working-directory = false
+window-inherit-working-directory = false
