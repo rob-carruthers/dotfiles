@@ -12,3 +12,10 @@
   type = "git-repo"
   url = "https://github.com/tmux-plugins/tpm"
   refreshPeriod = "168h"
+
+[".local/share/icons/phinger-cursors-dark"]
+    type = "archive"
+    url = "https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2"
+    include = ["./phinger-cursors-dark/**"]
+    stripComponents = 2
+    refreshPeriod = "168h"
