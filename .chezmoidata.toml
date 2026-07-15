@@ -1,4 +1,5 @@
 icon-theme = "Memphis98"
+cursor-theme = "phinger-cursors-dark"
 
 [default-fonts]
 regular = "Noto Sans"
