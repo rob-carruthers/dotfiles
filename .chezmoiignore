@@ -1,4 +1,5 @@
 {{- if ne .chezmoi.hostname "rob-pc" }}
 .config/mpd
 .config/utility-keys
+.config/wireplumber/wireplumber.conf.d/51-alc897-channel-swap.conf
 {{- end }}
