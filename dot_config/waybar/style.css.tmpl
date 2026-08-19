@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Noto Sans", "Font Awesome 6 Free";
+    font-family: "JetBrainsMonoNL Nerd Font Mono", "Font Awesome 6 Free";
     {{- if eq .chezmoi.hostname "rob-laptop" }}
     font-size: 14px;
     {{- end }}
@@ -12,240 +12,115 @@
 }
 
 window#waybar {
-    background: #c0c0c0;
-    color: #000000;
-    box-shadow: 0px 0px 3px 0px #00000;
-    border-bottom: solid 1px #404040;
-
+    background-color: rgba(43, 48, 59, 0.5);
+    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-#workspaces {
-    padding: 0;
-    margin: 5px 5px;
-    background: #c0c0c0;
-    color: #000000;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
+window#waybar.hidden {
+    opacity: 0.2;
+}
 
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #a37800;
 }
 
 #workspaces button {
-    padding: 0;
-    margin: 0;
-    background: #c0c0c0;
-    color: #000000;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    min-width: 24px;
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 #workspaces button:hover {
-    box-shadow: 0px 0px 0px;
-    text-shadow: none;
-    background: #E0E0E0;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
-    background: #E0E0E0;
-    color: #000000;
+#workspaces button.focused, #workspaces button.active {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
-#taskbar button {
-    padding: 5px 10px;
-    margin: 5px 3px;
-    background: #c0c0c0;
-    color: #000000;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    min-width: 200px;
-
+#workspaces button.urgent {
+    background-color: #eb4d4b;
 }
 
-#taskbar button.active {
-    background: #E0E0E0;
-    color: #000000;
-    border-right: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    /* border-top: 1px solid #404040; */
-    box-shadow: -1px -1px 1px 0px #000000;
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
-#custom-start {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    font-weight: bold;
-    background: url('/usr/share/icons/Memphis98/places/48/start-here.png');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
+#custom-pysomebar {
+    padding: 0 10px;
+    color: #ffffff;
 }
 
-#custom-start:active {
-    background: url('/usr/share/icons/Memphis98/places/48/start-here.png');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    box-shadow: 0px 0px 0px;
-    text-shadow: none;
-    background-color: #f0f0f0;
+#window,
+#workspaces {
+    margin: 0 4px;
 }
 
 #window {
-    padding: 5px 10px;
-    margin: 5px 3px;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
+    min-width: 200px;
 }
 
-#battery {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
 }
 
-#backlight {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
 }
 
-#wireplumber {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/status/48/audio-volume-high.png');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
 
-#pulseaudio {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    min-width: 50px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+label:focus {
+    background-color: #000000;
 }
 
-#network, #tray, #mpd {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+
+#custom-pysomebar {
+    min-width: 100px;
 }
 
-#cpu {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/devices/48/processor.png');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-}
-
-#temperature {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/status/48/weather-few-clouds.png');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-}
-
-#clock {
-    padding: 5px 5px;
-    margin: 5px 3px;
-    background-color: #b0b0b0;
-    color: #000000;
-    font-family: "Noto Sans", "Font Awesome 5 Free";
-    border-left: 0.5px solid #000000;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
-    box-shadow: -1px -0.5px 0px 0px #000000;
-    background-image: url("/etc/profiles/per-user/rob/share/icons/Memphis98/apps/48/clock.png");
-    background-position: right;
-    background-size: 13%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-}
-
-/*#battery button:hover,*/
-
-/*#pulseaudio:hover {
-    background-color: #E0E0E0;
-    box-shadow: 0px 0px 0px;
-}*/
