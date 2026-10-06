@@ -143,3 +143,12 @@ Mod4 s :MacroCmd {ResizeTo 50% 50%} {MoveTo 50% 50%}
 Mod4 j :NextWindow
 Mod4 k :PrevWindow
 Mod4 Shift r :Reconfigure
+
+# Media keys
+Control Shift Mod4 a :Exec mpc prev
+Control Shift Mod4 b :Exec mpc toggle
+Control Shift Mod4 c :Exec mpc next
+Control Shift Mod4 e :Exec ario
+Control Shift Mod4 m :Exec /home/rob/.config/dwl/vol.sh down
+Control Shift Mod4 n :Exec /home/rob/.config/dwl/vol.sh toggle
+Control Shift Mod4 o :Exec /home/rob/.config/dwl/vol.sh up
